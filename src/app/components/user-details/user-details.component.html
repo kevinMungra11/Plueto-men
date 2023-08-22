@@ -1,0 +1,20 @@
+<div class="container mt-4">
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">{{ user.name }}</h5>
+            <p class="card-text"><strong>Email:</strong> {{ user.email }}</p>
+            <p class="card-text"><strong>Mobile:</strong> {{ user.mobile }}</p>
+            <hr>
+            <div *ngFor="let address of user.addresses">
+                <p><strong>Pincode:</strong> {{ address.pincode }}</p>
+                <p><strong>Address Line 1:</strong> {{ address.addressLine1 }}</p>
+                <p><strong>Address Line 2:</strong> {{ address.addressLine2 }}</p>
+                <p><strong>City:</strong> {{ address.city }}</p>
+                <p><strong>State:</strong> {{ address.state }}</p>
+                <hr>
+            </div>
+            <button class="btn btn-primary" (click)="editUser()">Edit</button>
+            <button class="btn btn-danger" (click)="deleteUser()">Delete</button>
+        </div>
+    </div>
+</div>

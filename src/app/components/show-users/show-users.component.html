@@ -1,1 +1,17 @@
-<p>show-users works!</p>
+<div class="container mt-4">
+    <div class="row">
+        <div *ngIf="users.length === 0">
+            <h2>No data available</h2>
+            <h3><span (click)="navigateToAddUser()">Click here</span> to Add some data</h3>     
+        </div>
+        <div *ngFor="let user of users; let i = index" class="col-md-4 mb-4">
+            <div class="card" (click)="redirectToDetails(i)">
+                <div class="card-body">
+                    <h5 class="card-title">{{ user.name }}</h5>
+                    <p class="card-text">{{ user.email }}</p>
+                    <p class="card-text">{{ user.mobile }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

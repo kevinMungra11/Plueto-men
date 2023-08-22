@@ -103,7 +103,7 @@
 
     <div class="col-12">
       <button type="button" (click)="addAddress()" class="btn btn-secondary mb-3 me-2">Add Address</button>
-      <button type="submit" class="btn btn-primary mb-3" [disabled]="!form.valid">Submit</button>
+      <button type="submit" class="btn btn-primary mb-3" [disabled]="!form.valid">{{index === -1 ? 'Submit' : 'Edit'}}</button>
     </div>
 
   </form>

@@ -12,6 +12,7 @@ import { ShowUsersComponent } from './components/show-users/show-users.component
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { ToastrModule,ToastrService } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { UserDetailsComponent } from './components/user-details/user-details.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     SigninComponent,
     AddUserComponent,
     ShowUsersComponent,
+    UserDetailsComponent,
   ],
   imports: [
     BrowserModule,

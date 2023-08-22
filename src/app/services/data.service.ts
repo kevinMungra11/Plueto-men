@@ -30,4 +30,7 @@ export class DataService {
     }
   }
 
+  getDataByIndex(index: number): any {
+    return this.dataList[index];
+  }
 }

@@ -23,7 +23,7 @@ export class HeaderComponent {
   }
 
   navigateToAddUser():void {
-    this.router.navigate(['/add-user']);
+    this.router.navigate(['/user/add-user']);
     return;
   }
 

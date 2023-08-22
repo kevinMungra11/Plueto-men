@@ -17,11 +17,11 @@ export class SigninComponent {
 
   signInCredentials(email: string, password: string): void {
     this.authService.signIn(email,password).subscribe((data:any) => {
-      this.toastrService.success('Welcome', 'Succesfully Loggedin');
+      // this.toastrService.success('', '');
       localStorage.setItem("token", data.accessToken);
       this.router.navigate(['see-user'])
     },(err : any) => {
-      this.toastrService.error('Error', 'Something went wrong');
+      // this.toastrService.error('Error', 'Something went wrong');
       console.log(err)
     })
   }
