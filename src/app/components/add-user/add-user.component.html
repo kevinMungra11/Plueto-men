@@ -1,0 +1,110 @@
+<div class="container mt-5">
+  <form [formGroup]="form" class="row g-3" (submit)="onSubmit()">
+    <div class="col-12">
+      <label for="name" class="form-label">Name</label>
+      <input type="text" class="form-control" id="name" formControlName="name">
+    </div>
+
+    <div class="col-12">
+      <label for="email" class="form-label">Email</label>
+      <input type="email" class="form-control" id="email" formControlName="email">
+      <div *ngIf="form.get('email')?.errors && form.get('email')?.touched">
+
+        <div *ngIf="form.get('email')?.hasError('required')" class="text-danger">
+          Email is required.
+        </div>
+
+        <div *ngIf="form.get('email')?.hasError('email')" class="text-danger">
+          Enter a valid email.
+        </div>
+
+      </div>
+    </div>
+
+    <div class="col-12">
+      <label for="mobile" class="form-label">Mobile</label>
+      <input type="text" class="form-control" id="mobile" formControlName="mobile">
+      <div *ngIf="form.get('mobile')?.errors && form.get('mobile')?.touched">
+
+        <div *ngIf="form.get('mobile')?.hasError('required')" class="text-danger">
+          Mobile number is required.
+        </div>
+
+        <div *ngIf="form.get('mobile')?.hasError('pattern')" class="text-danger">
+          Mobile number should be exactly 10 characters long.
+        </div>
+
+      </div>
+    </div>
+
+    <div class="col-12" formArrayName="addresses">
+      <label class="form-label">Addresses:</label>
+
+      <div *ngFor="let address of addresses.controls; let i = index;" [formGroupName]="i">
+
+        <div class="mb-3">
+          <label for="pincode" class="form-label">Pin Code</label>
+          <input type="text" class="form-control" id="pincode" formControlName="pincode">
+
+          <div *ngIf="form.get('pincode')?.errors && form.get('pincode')?.touched">
+            <div *ngIf="form.get('pincode')?.hasError('required')" class="text-danger">
+              Pin Code is required.
+            </div>
+            <div *ngIf="form.get('pincode')?.hasError('minlength') || form.get('pincode')?.hasError('maxLength')"
+              class="text-danger">
+              Pin Code should be exactly 6 characters long.
+            </div>
+          </div>
+
+        </div>
+
+        <div class="mb-3">
+          <label for="addressLine1" class="form-label">Address Line 1</label>
+          <input type="text" class="form-control" id="addressLine1" formControlName="addressLine1">
+
+          <div *ngIf="form.get('addressLine1')?.errors && form.get('addressLine1')?.touched">
+            <div *ngIf="form.get('addressLine1')?.hasError('required')" class="text-danger">
+              Address Line 1 is required.
+            </div>
+          </div>
+
+        </div>
+
+        <div class="mb-3">
+          <label for="addressLine2" class="form-label">Address Line 2</label>
+          <input type="text" class="form-control" id="addressLine2" formControlName="addressLine2">
+        </div>
+
+        <div class="mb-3">
+          <label for="city" class="form-label">City</label>
+          <input type="text" class="form-control" id="city" formControlName="city">
+
+          <div *ngIf="form.get('city')?.errors && form.get('city')?.touched">
+            <div *ngIf="form.get('city')?.hasError('required')" class="text-danger">
+              City is required.
+            </div>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="state" class="form-label">State</label>
+          <input type="text" class="form-control" id="state" formControlName="state">
+          <div *ngIf="form.get('state')?.errors && form.get('state')?.touched">
+            <div *ngIf="form.get('state')?.hasError('required')" class="text-danger">
+              State is required.
+            </div>
+          </div>
+        </div>
+
+        <button (click)="removeAddress(i)" class="btn btn-danger mb-3">Remove Address</button>
+        <hr> 
+      </div>
+    </div>
+
+    <div class="col-12">
+      <button type="button" (click)="addAddress()" class="btn btn-secondary mb-3 me-2">Add Address</button>
+      <button type="submit" class="btn btn-primary mb-3" [disabled]="!form.valid">Submit</button>
+    </div>
+
+  </form>
+</div>

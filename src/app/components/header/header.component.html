@@ -1,0 +1,26 @@
+<nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container justify-content-center align-items-center">
+      <a class="navbar-brand" href="https://pluto-men.com/" target="_blank">
+        <img src="../../../assets/logo.svg" alt="My Company Logo" class="logo-svg">
+      </a>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" *ngIf="isSignedIn()" (click)="navigateToSignIn()">Sign in</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" (click)="navigateToAddUser()">Add-User</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" (click)="navigateToShowUsers()">Show User</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" *ngIf="!isSignedIn()" (click)="navigateToHome()">Sign Out</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+</nav>
